@@ -37,4 +37,8 @@ while url_atual:
         url_atual = None
 
 df = pd.DataFrame(dados) #cria um dataframe
-df.to_csv("arquivo.csv", index=False)
+df.to_csv("versao1/arquivo.csv", index=False)
+
+df_autores = df["autor"].value_counts().reset_index() #conta quanto cada um aparece e reseta seu indice
+df_autores.columns = ["autor", "aparicoes"] #renomeia as colunas
+df_autores.to_csv("versao1/autores.csv", index=False)
